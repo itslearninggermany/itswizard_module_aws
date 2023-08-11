@@ -1,6 +1,5 @@
 package itswizard_module_aws
 
-
 import (
 	"errors"
 	"fmt"
@@ -173,7 +172,6 @@ func (p *Bucket) DownloadAFileAndStore(filename string, targetpath string) error
 	if err != nil {
 		return err
 	}
-	defer file.Close()
 	downloader := s3manager.NewDownloader(p.session)
 	_, err = downloader.Download(file,
 		&s3.GetObjectInput{
